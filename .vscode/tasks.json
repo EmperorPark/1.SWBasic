@@ -86,6 +86,16 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "label": "makeFileBuild",
+            "type": "shell",
+            "command": "mingw32-make",
+            "group": "build",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": []
         }
     ]
 }
