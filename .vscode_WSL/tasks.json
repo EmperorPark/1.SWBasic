@@ -59,25 +59,22 @@
         },
         {
             "label": "execute",
-            "command": "cmd",
-            "group": "test",
-            "args": [
-                "/C",
-                "${fileDirname}\\${fileBasenameNoExtension}"
-            ]
+            "command": "${fileDirname}/${fileBasenameNoExtension}",
+            "group": "test"
         },
         {
-            "type": "shell",
-            "label": "C/C++: g++.exe build active file",
-            "command": "C:/mingw64/bin/g++.exe",
+            "type": "cppbuild",
+            "label": "C/C++: g++ 활성 파일 빌드",
+            "command": "/usr/bin/g++",
             "args": [
+                "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
                 "-o",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+                "${fileDirname}/${fileBasenameNoExtension}"
             ],
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${fileDirname}"
             },
             "problemMatcher": [
                 "$gcc"
@@ -85,17 +82,8 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
-        },
-        {
-            "label": "makeFileBuild",
-            "type": "shell",
-            "command": "mingw32-make",
-            "group": "build",
-            "options": {
-                "cwd": "${fileDirname}"
             },
-            "problemMatcher": []
+            "detail": "디버거에서 생성된 작업입니다."
         }
     ]
 }
